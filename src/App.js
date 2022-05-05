@@ -6,7 +6,7 @@ function App() {
   const [title, setTitle] = useState('');
   const [year, setYear] = useState('');
   const [director, setDirector] = useState('');
-  const [posterColor, setPosterColor] = useState('');
+  const [posterColor, setPosterColor] = useState('magenta');
 
 
   return (
@@ -37,10 +37,13 @@ function App() {
             </label>
             <button>Add Movie</button>
           </form>
+          {
+            title || year
+              ? <MoviePoster title={title} year={year} director={director} posterColor={posterColor} />
+              : <div>Type to show a preview.</div>
+          }
         </div>
-        <div className='movie-poster' style={{ background: posterColor }}>
-          <MoviePoster title={title} year={year} director={director} posterColor={posterColor} />
-        </div>
+
         
         <div className='bottom'>
         
