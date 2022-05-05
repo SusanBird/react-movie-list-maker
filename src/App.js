@@ -1,6 +1,13 @@
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [title, setTitle] = useState('');
+  const [year, setYear] = useState('');
+  const [director, setDirector] = useState('');
+  const [posterColor, setPosterColor] = useState('');
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -8,19 +15,24 @@ function App() {
           <form>
             <label>
             Title
-              <input />
+              <input onChange={e => setTitle(e.target.value)}/>
             </label>
             <label>
             Year Released
-              <input />
+              <input onChange={e => setYear(e.target.value)}/>
             </label>
             <label>
             Director
-              <input />
+              <input onChange={e => setDirector(e.target.value)}/>
             </label>
             <label>
             Poster Color
-              <input />
+              <select onChange={e => setPosterColor(e.target.value)}> 
+                <option>blue</option>
+                <option>purple</option>
+                <option>green</option>
+                <option>pink</option>
+              </select>
             </label>
             <button>Add Movie</button>
           </form>
