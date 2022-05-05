@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+import MoviePoster from './MoviePoster';
 
 function App() {
   const [title, setTitle] = useState('');
@@ -28,16 +29,19 @@ function App() {
             <label>
             Poster Color
               <select onChange={e => setPosterColor(e.target.value)}> 
-                <option>blue</option>
-                <option>purple</option>
-                <option>green</option>
-                <option>pink</option>
+                <option value="navy">Blue</option>
+                <option value="purple">Purple</option>
+                <option value="olive">Green</option>
+                <option value="pink">Pink</option>
               </select>
             </label>
             <button>Add Movie</button>
           </form>
         </div>
-        {/* <MoviePoster /> */}
+        <div className='movie-poster' style={{ background: posterColor }}>
+          <MoviePoster title={title} year={year} director={director} posterColor={posterColor} />
+        </div>
+        
         <div className='bottom'>
         
           {/* <MovieList /> */}
