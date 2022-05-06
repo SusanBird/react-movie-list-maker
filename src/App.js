@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import MoviePoster from './MoviePoster';
+import MovieList from './MovieList';
 
 function App() {
   const [title, setTitle] = useState('');
@@ -9,47 +10,11 @@ function App() {
   const [posterColor, setPosterColor] = useState('magenta');
   const [movies, setMovies] = useState([{ title: 'Hook', year: 2018, director: 'Peter Pan', posterColor: 'pink' }]);
 
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    alert(`${title} ${year} ${director} ${posterColor}`);
-
-    setTitle('');
-    setYear('');
-    setDirector('');
-    setPosterColor('magenta');
-  }
-
-  console.log(title, year, director, posterColor);
-
   return (
     <div className="App">
       <header className="App-header">
         <div className='top'> 
-          <form>
-            <label>
-            Title
-              <input onChange={e => setTitle(e.target.value)}/>
-            </label>
-            <label>
-            Year Released
-              <input onChange={e => setYear(e.target.value)}/>
-            </label>
-            <label>
-            Director
-              <input onChange={e => setDirector(e.target.value)}/>
-            </label>
-            <label>
-            Poster Color
-              <select onChange={e => setPosterColor(e.target.value)}> 
-                <option value="navy">Blue</option>
-                <option value="purple">Purple</option>
-                <option value="olive">Green</option>
-                <option value="pink">Pink</option>
-              </select>
-            </label>
-            <button>Add Movie</button>
-          </form>
+          
           {
             title || year
               ? <MoviePoster title={title} year={year} director={director} posterColor={posterColor} />
@@ -60,7 +25,7 @@ function App() {
         
         <div className='bottom'>
         
-          {/* <MovieList /> */}
+          <MovieList movies={movies}/>
         </div>
       </header>
     </div>
