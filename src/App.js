@@ -45,6 +45,7 @@ function App() {
             setTitle={setTitle}
             year={year}
             setYear={setYear}
+            director={director}
             setDirector={setDirector}
             posterColor={posterColor}
             setPosterColor={setPosterColor}

@@ -5,7 +5,7 @@ export default function MovieForm({
   year, setYear,
   director, setDirector,
   posterColor, setPosterColor,  
-  movies, setMovies 
+  setMovies, movies 
 }) {
 
   function handleSubmit(e) {
@@ -18,7 +18,11 @@ export default function MovieForm({
       posterColor
     };
 
-    setMovies([...movies, newMovie]);
+    // setMovies([...movies, newMovie]);         //this method does nothing and when console logged is undefined 
+
+    movies.push(newMovie);
+
+    setMovies([...movies]);  ///this method adds a single movie, but stops working after one
 
     setTitle('');
     setYear('');

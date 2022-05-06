@@ -3,7 +3,7 @@ import MoviePoster from './MoviePoster';
 
 export default function MovieList({ movies, deleteMovieByTitle }) {
   return (
-    <div>
+    <div className='list'>
       {
         movies.map((movie, i) => <MoviePoster 
           key={`${movie.title}-${movie.year}-${movie.director}-${i}`} 
