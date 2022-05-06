@@ -3,6 +3,7 @@ import React from 'react';
 export default function MovieForm({ 
   title, setTitle,
   year, setYear,
+  director, setDirector,
   posterColor, setPosterColor,  
   movies, setMovies 
 }) {
@@ -13,6 +14,7 @@ export default function MovieForm({
     const newMovie = {
       title,
       year,
+      director,
       posterColor
     };
 
@@ -25,22 +27,22 @@ export default function MovieForm({
   }
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>
             Title
-        <input onChange={e => setTitle(e.target.value)}/>
+        <input value={title} onChange={e => setTitle(e.target.value)}/>
       </label>
       <label>
             Year Released
-        <input onChange={e => setYear(e.target.value)}/>
+        <input value={year} onChange={e => setYear(e.target.value)}/>
       </label>
       <label>
             Director
-        <input onChange={e => setDirector(e.target.value)}/>
+        <input value={director} onChange={e => setDirector(e.target.value)}/>
       </label>
       <label>
             Poster Color
-        <select onChange={e => setPosterColor(e.target.value)}> 
+        <select value={posterColor} onChange={e => setPosterColor(e.target.value)}> 
           <option value="navy">Blue</option>
           <option value="purple">Purple</option>
           <option value="olive">Green</option>
