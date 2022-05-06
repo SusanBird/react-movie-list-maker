@@ -1,7 +1,7 @@
 import React from 'react';
 import MoviePoster from './MoviePoster';
 
-export default function MovieList({ movies }) {
+export default function MovieList({ movies, deleteMovieByTitle }) {
   return (
     <div>
       {
@@ -11,6 +11,7 @@ export default function MovieList({ movies }) {
           year={movie.year} 
           director={movie.director}
           posterColor={movie.posterColor} 
+          deleteMovieByTitle={deleteMovieByTitle}
         />)
       }
     </div>
