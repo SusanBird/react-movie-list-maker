@@ -7,6 +7,7 @@ function App() {
   const [year, setYear] = useState('');
   const [director, setDirector] = useState('');
   const [posterColor, setPosterColor] = useState('magenta');
+  const [movies, setMovies] = useState([{ title: 'Hook', year: 2018, director: 'Peter Pan', posterColor: 'pink' }]);
 
   function handleSubmit(e) {
     e.preventDefault();
