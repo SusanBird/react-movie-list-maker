@@ -8,6 +8,18 @@ function App() {
   const [director, setDirector] = useState('');
   const [posterColor, setPosterColor] = useState('magenta');
 
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    alert(`${title} ${year} ${director} ${posterColor}`);
+
+    setTitle('');
+    setYear('');
+    setDirector('');
+    setPosterColor('magenta');
+  }
+
+  console.log(title, year, director, posterColor);
 
   return (
     <div className="App">
