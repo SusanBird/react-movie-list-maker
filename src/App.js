@@ -40,15 +40,24 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className='top'> 
-          
+          <MovieForm
+            title={title}
+            setTitle={setTitle}
+            year={year}
+            setYear={setYear}
+            setDirector={setDirector}
+            posterColor={posterColor}
+            setPosterColor={setPosterColor}
+            setMovies={setMovies}
+            movies={movies}
+          />
           {
-            title || year
+            title || year || director
               ? <MoviePoster title={title} year={year} director={director} posterColor={posterColor} />
               : <div>Type to show a preview.</div>
           }
         </div>
 
-        
         <div className='bottom'>
           <div>
             Filtered Movies by Title
