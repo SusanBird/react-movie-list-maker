@@ -10,7 +10,7 @@ function App() {
   const [director, setDirector] = useState('');
   const [posterColor, setPosterColor] = useState('magenta');
   const [movies, setMovies] = useState([{ title: 'Hook', year: 2018, director: 'Peter Pan', posterColor: 'pink' }]);
-  const [filteredMovies, setFilteredMovies] = useState(movies);
+  const [filteredMovies, setFilteredMovies] = useState([]);
 
 
   function deleteMovieByTitle(title) {
@@ -65,7 +65,7 @@ function App() {
             <input onChange={e => filterMoviesByTitle(e.target.value)} />
           </div>
         
-          <MovieList movies={filteredMovies} deleteMovieByTitle={deleteMovieByTitle} />
+          <MovieList movies={filteredMovies.length ? filteredMovies : movies} deleteMovieByTitle={deleteMovieByTitle} />
         </div>
       </header>
     </div>
