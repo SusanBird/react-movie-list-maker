@@ -10,6 +10,8 @@ function App() {
   const [director, setDirector] = useState('');
   const [posterColor, setPosterColor] = useState('magenta');
   const [movies, setMovies] = useState([{ title: 'Hook', year: 2018, director: 'Peter Pan', posterColor: 'pink' }]);
+  const [filteredMovies, setFilteredMovies] = useState(movies);
+
 
   function deleteMovieByTitle(title) {
 
@@ -18,6 +20,19 @@ function App() {
     movies.splice(indexToRemove, 1);
 
     setMovies([...movies]);
+  }
+
+  function filterMoviesByTitle(userInput) {
+    if (userInput) {
+      const matchingMovies = movies
+        .filter(movie => movie.title.toLowerCase()
+          .includes(userInput.toLowerCase()
+          )
+        );
+      setFilteredMovies([...matchingMovies]);
+    } else {
+      setFilteredMovies([...movies]);
+    }
   }
 
 
@@ -35,8 +50,12 @@ function App() {
 
         
         <div className='bottom'>
+          <div>
+            Filtered Movies by Title
+            <input onChange={e => filterMoviesByTitle(e.target.value)} />
+          </div>
         
-          <MovieList movies={movies} deleteMovieByTitle={deleteMovieByTitle} />
+          <MovieList movies={filteredMovies} deleteMovieByTitle={deleteMovieByTitle} />
         </div>
       </header>
     </div>
